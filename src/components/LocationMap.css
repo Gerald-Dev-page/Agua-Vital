@@ -1,0 +1,101 @@
+.location-section {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-color: var(--color-bg-light);
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.map-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(20%) contrast(1.1); /* Ligero ajuste visual moderno */
+}
+
+.map-card-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none; /* Permite interactuar con el mapa detrás */
+  display: flex;
+  align-items: center;
+}
+
+.map-floating-card {
+  pointer-events: auto; /* Reactiva interacción para la tarjeta */
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  max-width: 400px;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px);
+  animation: floatUp 0.8s ease-out forwards;
+}
+
+@keyframes floatUp {
+  to { transform: translateY(0); }
+}
+
+.map-card-header h3 {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.map-card-body {
+  margin-bottom: 24px;
+}
+
+.address-line {
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.address-line strong {
+  color: var(--color-primary);
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+@media (max-width: 768px) {
+  .location-section {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .map-container iframe {
+    position: relative;
+    height: 400px;
+  }
+  .map-card-wrapper {
+    position: relative;
+    height: auto;
+    padding: 24px;
+    background: var(--color-white);
+  }
+  .map-floating-card {
+    max-width: 100%;
+    box-shadow: none;
+    border: 1px solid rgba(10, 37, 64, 0.1);
+    background: var(--color-bg-light);
+  }
+}
