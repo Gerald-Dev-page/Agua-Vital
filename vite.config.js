@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // El base debe ser exactamente el nombre de tu repositorio entre barras
-  base: '/Agua-Vital/', 
+  base: '/', 
 })
